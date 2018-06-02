@@ -1,0 +1,147 @@
+.section {
+  padding-bottom: 3rem;
+
+  @include mq($from: tablet) {
+    padding-bottom: 6rem;
+  }
+
+  & + & {
+    border-top: 1px solid $secondary-lighten-color;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: $grid;
+  @extend %center-block;
+  text-align: center;
+}
+
+.content {
+  @include col-flex;
+  margin-top: 2rem;
+
+  @include mq($from: tablet) {
+    margin-top: 3.5rem;
+  }
+
+  @include mq($from: desktop) {
+    margin-top: 5rem;
+  }
+
+  &.--intro {
+    @include mq($from: tablet) {
+      @include col-flex(8/12, false);
+    }
+
+    @include mq($from: desktop) {
+      @include col-flex(7/12, false);
+    }
+  }
+
+  &.--toggle,
+  &.--forms,
+  &.--selectors {
+    @include mq($from: tablet) {
+      @include col-flex(9/12, false);
+    }
+  }
+}
+
+.wrapper-title {
+  display: inline-block;
+  text-align: center;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+
+  @include mq($from: tablet) {
+    margin-bottom: 2rem;
+  }
+
+  @include mq($from: desktop) {
+    margin-bottom: 2.5rem;
+  }
+}
+.title {
+  margin-top: 0;
+  margin-bottom: 0;
+  @include style(2.5rem, $text-color);
+  position: relative;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 3.5rem;
+    height: 0.5rem;
+    background-color: $primary-color;
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+  }
+
+  @include mq($from: tablet) {
+    font-size: 3rem;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 3.5rem;
+  }
+}
+
+.text {
+  margin-top: 0;
+  margin-bottom: 0;
+  @include style(1.25rem, $text-color, $ff-sans-serif);
+
+  @include mq($from: tablet) {
+    font-size: 1.25rem;
+  }
+}
+
+.wrapper-buttons {
+  margin-top: 2rem;
+
+  @include mq($from: tablet) {
+    margin-top: 3rem;
+
+    .--forms & {
+      margin-top: 2rem;
+    }
+  }
+}
+.buttons {
+  text-align: center;
+}
+
+.subtitle {
+  @include col-flex;
+  @include style(1.5rem, $text-color);
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @include mq($from: tablet) {
+    @include style(2.25rem, $text-color);
+  }
+
+  .--forms & {
+    margin-bottom: 0.5rem;
+
+    @include mq($from: tablet) {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.wrapper-icons {
+  @include col-flex;
+  margin-top: 1.5rem;
+}
+.icon {
+  color: $tertiary-color;
+  font-size: 8rem;
+}

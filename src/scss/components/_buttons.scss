@@ -1,0 +1,49 @@
+%button-base {
+  display: inline-block;
+  @include cssVars(background-color, --transparent);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  @include style(1.125rem, currentColor, $ff-sans-serif);
+  font-weight: $bold;
+  line-height: 1.4;
+  transition: background-color 250ms $ease-in;
+  text-decoration: none;
+  text-align: center;
+  border-radius: $radius;
+  will-change: background-color;
+
+  &:focus,
+  &:hover {
+    transition: background-color 200ms $ease-in;
+  }
+
+  @include mq($from: tablet) {
+    padding: 1rem 2.5rem;
+  }
+}
+
+%button {
+  @extend %button-base;
+}
+
+%button-primary {
+  @extend %button;
+  @include cssVars(color, --button-text-color);
+  @include cssVars(background-color, --button-color);
+
+  &:focus,
+  &:hover {
+    @include cssVars(background-color, --button-hover-color);
+  }
+}
+
+.button-primary {
+  @extend %button;
+  @extend %button-primary;
+
+  & ~ & {
+    margin-left: 1rem;
+  }
+}

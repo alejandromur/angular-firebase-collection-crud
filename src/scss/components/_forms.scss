@@ -1,0 +1,60 @@
+%input-style {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.5rem;
+  border-radius: $radius;
+  background: palette(white);
+  border: 1px solid $secondary-lighten-color;
+  min-height: 2.5rem;
+  color: $text-color;
+  transition: border-color 200ms $ease-in;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  @include style(1rem, $text-color, $ff-sans-serif);
+  font-weight: $bold;
+}
+
+input {
+  @extend %input-style;
+
+  &:hover,
+  &:focus,
+  &:focus + label {
+    border: 1px solid $primary-color;
+  }
+}
+
+.form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  fieldset {
+    @include row;
+  }
+
+  &-field {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: left;
+
+    @include mq($from: tablet_medium) {
+      width: 32%;
+      margin-right: 2%;
+      float: left;
+
+      &:nth-child(3n + 3) {
+        margin-right: 0;
+      }
+    }
+  }
+}
