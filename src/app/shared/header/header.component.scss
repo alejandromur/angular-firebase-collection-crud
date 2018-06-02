@@ -1,0 +1,9 @@
+// :root {
+//   --dev: #f06;
+// }
+
+h1 {
+  --dev: #f06;
+  text-align: center;
+  background-color: var(--dev);
+}
