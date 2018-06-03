@@ -8,6 +8,7 @@
 }
 
 html {
+  min-height: 100vh;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -18,6 +19,9 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: inherit;
   font-weight: $regular;
   font-size: 100%;
@@ -66,9 +70,15 @@ h3,
 h4,
 h5,
 h6 {
+  margin-top: 0;
+  margin-bottom: 0;
   font-family: $ff-sans-serif;
   font-weight: normal;
   line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1.25rem;
 }
 
 hr {
@@ -79,15 +89,37 @@ hr {
 
 ::-moz-selection {
   color: palette(white);
-  background-color: $primary-color;
+  background-color: var(--primary-color);
 }
 
 ::selection {
   color: palette(white);
-  background-color: $primary-color;
+  background-color: var(--primary-color);
 }
 
 a {
   cursor: pointer;
   @extend %transition;
+}
+
+
+app-root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header,
+.app-footer {
+  flex: 0 0 auto;
+  display: block;
+  padding: 1rem;
+  background: var(--secondary-color);
+}
+
+.app-main {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 1fr;
 }

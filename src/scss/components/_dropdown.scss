@@ -3,7 +3,7 @@
   vertical-align: bottom;
   position: relative;
   cursor: pointer;
-  border-bottom: 2px solid $secondary-lighten-color;
+  border-bottom: 2px solid var(--secondary-lighten-color);
 
   &__text {
     display: inline-block;
@@ -21,7 +21,7 @@
     font-size: 1rem;
     line-height: 2rem;
     margin-left: 0.5rem;
-    color: $primary-color;
+    color: var(--primary-color);
     transform: translate(0, 0.5rem);
     transform-origin: center;
     transition: transform 250ms $ease-in;
@@ -39,7 +39,7 @@
     z-index: z(default);
     opacity: 0;
     transform: translate(0, 0);
-    border: 1px solid $secondary-lighten-color;
+    border: 1px solid var(--secondary-lighten-color);
     box-shadow: 0 3px 3px 0 black(0.18);
     transition: transform 250ms $ease-in, opacity 300ms 50ms $ease-in;
     clip-path: polygon(1px 1px, 1px 1px, 1px 1px);
@@ -65,7 +65,7 @@
       }
 
       & + & {
-        border-top: 1px solid $secondary-lighten-color;
+        border-top: 1px solid var(--secondary-lighten-color);
       }
     }
   }

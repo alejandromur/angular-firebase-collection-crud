@@ -3,7 +3,8 @@
 // }
 
 h1 {
-  --dev: #f06;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--secondary-lighten-color);
   text-align: center;
-  background-color: var(--dev);
 }

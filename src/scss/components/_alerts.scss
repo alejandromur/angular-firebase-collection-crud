@@ -1,9 +1,9 @@
 .alert {
   padding: 1rem 2rem;
-  background-color: rgba($primary-color, 0.1);
+  background-color: rgba(var(--primary-color), 0.1);
 
   p {
-    @include style(0.875rem, $secondary-color, $ff-sans-serif);
+    @include style(0.875rem, var(--secondary-color), $ff-sans-serif);
     margin-top: 0;
     margin-bottom: 0;
   }

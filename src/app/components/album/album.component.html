@@ -1,0 +1,40 @@
+<div class="album">
+  <header class="album__header">
+    <figure class="album__figure">
+      <img src="{{ album.path }}" alt="{{ album.picture }}">
+    </figure>
+    <h2 class="album__title">
+      <strong>#{{ album.id }}</strong> {{ album.title }}
+    </h2>
+  </header>
+  <div class="album__body">
+    <p>
+      <span>{{ album?.city }}</span> -
+      <span>{{ album.year }}</span>
+    </p>
+    <h2>{{ album.title }}</h2>
+    <p>{{ album.artist }}</p>
+    <p>{{ album.players }}</p>
+    <p>{{ album.instruments }}</p>
+    <hr>
+    <h3>Tracklist</h3>
+    <p>Side A</p>
+    <ul>
+      <li *ngFor="let tracklistSideA of album.tracklistSideA">
+        <span>{{ album.tracklistSideA }}</span> -
+        <span>{{ album.tracklistDurationSideA }}</span>
+      </li>
+    </ul>
+    <p>Side B</p>
+    <ul>
+      <li>
+        <span>{{ album.tracklistSideB }}</span> -
+        <span>{{ album.tracklistDurationSideB }}</span>
+      </li>
+    </ul>
+    <hr>
+    <p>{{ album.gift }}</p>
+    <p>{{ album.date }}</p>
+    <p>{{ album.comments }}</p>
+  </div>
+</div>

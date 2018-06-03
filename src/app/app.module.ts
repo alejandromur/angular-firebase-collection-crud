@@ -5,13 +5,18 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { MainComponent } from './shared/main/main.component';
+import { AsideComponent } from './shared/aside/aside.component';
+import { AlbumComponent } from './components/album/album.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    AsideComponent,
     MainComponent,
-    FooterComponent
+    FooterComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule

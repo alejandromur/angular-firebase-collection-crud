@@ -11,17 +11,17 @@ $namespace: "mamutlove";
 
 // Brand Colours
 //-----------
-$primary-color: #c3578f;
-$primary-lighten-color: #f53d99;
-$primary-darken-color: darken($primary-color, 10%);
-
-$secondary-color: #222222;
-$secondary-lighten-color: #e9e9e9;
-$secondary-darken-color: #000000;
-
-$tertiary-color: #6b3870;
-$tertiary-lighten-color: lighten($tertiary-color, 10%);
-$tertiary-darken-color: darken($tertiary-color, 10%);
+:root {
+  --primary-color: #c3578f;
+  --primary-lighten-color: #f53d99;
+  --primary-darken-color: darken(var(--primary-color), 10%);
+  --secondary-color: #222222;
+  --secondary-lighten-color: #e9e9e9;
+  --secondary-darken-color: #000000;
+  --tertiary-color: #6b3870;
+  --tertiary-lighten-color: lighten(var(--tertiary-color), 10%);
+  --tertiary-darken-color: darken(var(--tertiary-color), 10%);
+}
 
 // Generic Colours
 //-----------
@@ -33,7 +33,7 @@ $palettes-neutral: (
 
 // Text Colours
 //-----------
-$text-color: $secondary-color;
+$text-color: var(--secondary-color);
 $text-button-color: palette(white);
 
 $transparent: rgba(palette(white), 0);
@@ -47,8 +47,9 @@ $callout: #f1f0f0;
 // Custom Properties Map
 // -----------
 $vars: (
-  --button-color: $primary-color,
-  --button-hover-color: $primary-lighten-color,
+  --button-color: var(--primary-color),
+  --button-hover-color: var(--primary-lighten-color),
   --button-text-color: $text-button-color,
   --transparent: $transparent
 );
+
