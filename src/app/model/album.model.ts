@@ -1,18 +1,18 @@
 export class AlbumModel {
-  id: number,
+  id: number;
   title: string;
-  path: string,
-  picture: string,
-  city?: string,
+  path: string;
+  picture: string;
+  city?: string;
   year: Date;
   artist: string;
   players: string[];
-  instruments: string[],
+  instruments: string[];
   tracklistSideA: number[];
   tracklistSideB: number[];
-  tracklistDurationSideA: number[],
-  tracklistDurationSideB: number[],
+  tracklistDurationSideA: number[];
+  tracklistDurationSideB: number[];
   gift: string;
   date: Date;
-  comments: string
+  comments: string;
 }

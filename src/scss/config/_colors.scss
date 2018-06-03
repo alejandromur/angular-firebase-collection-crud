@@ -12,12 +12,12 @@ $namespace: "mamutlove";
 // Brand Colours
 //-----------
 :root {
-  --primary-color: #c3578f;
-  --primary-lighten-color: #f53d99;
-  --primary-darken-color: darken(var(--primary-color), 10%);
+  --primary-color: turquoise;
+  --primary-lighten-color: #59efe0;
+  --primary-darken-color: #3fd8c9;
   --secondary-color: #222222;
   --secondary-lighten-color: #e9e9e9;
-  --secondary-darken-color: #000000;
+  --secondary-darken-color: #f1f4f5;
   --tertiary-color: #6b3870;
   --tertiary-lighten-color: lighten(var(--tertiary-color), 10%);
   --tertiary-darken-color: darken(var(--tertiary-color), 10%);

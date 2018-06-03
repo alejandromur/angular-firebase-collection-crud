@@ -1,8 +1,27 @@
 .album {
-  max-width: 600 / 16 * 1rem ;
+  max-width: 960 / 16 * 1rem ;
   padding: 1rem;
+
+  @media screen and (min-width: 48em) {
+    display: flex;
+  }
+}
+
+.album__header {
 
   img {
     max-width: 20rem;
+  }
+
+  @media screen and (min-width: 48em) {
+    flex: 0 0 20rem;
+  }
+}
+
+.album__body {
+
+  @media screen and (min-width: 48em) {
+    flex: 1 1 auto;
+    padding-left: 1rem;
   }
 }

@@ -1,4 +1,34 @@
 aside {
   height: 100%;
-  background: var(--primary-color);
+  background: var(--secondary-lighten-color);
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (min-width: 48em) {
+      display: block;
+    }
+}
+
+a {
+  display: flex;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--primary-darken);
+  color: var(--secondary-color);
+  background-color: var(--secondary-lighten-color);
+  text-decoration: none;
+  transition: all 200ms ease;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color);
+    background-color: var(--secondary-darken-color);
+  }
+
+  svg,
+  path {
+    fill: currentColor;
+  }
 }

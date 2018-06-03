@@ -120,6 +120,11 @@ app-root {
 .app-main {
   flex: 1 1 auto;
   display: grid;
-  grid-template-columns: 200px auto;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+
+  @include mq($from: tablet) {
+    // grid-template-columns: 16rem auto;
+    grid-template-columns: 4.5rem auto;
+  }
 }
