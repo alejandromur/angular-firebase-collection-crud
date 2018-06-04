@@ -1,40 +1,46 @@
-<div class="album">
-  <header class="album__header">
-    <figure class="album__figure">
-      <img src="{{ album.path }}" alt="{{ album.picture }}">
-    </figure>
-    <h2 class="album__title">
-      <strong>#{{ album.id }}</strong> {{ album.title }}
-    </h2>
-  </header>
+<article class="album">
+  <figure class="album__figure">
+    <img src="{{ album.path }}" alt="{{ album.alt }}">
+  </figure>
   <div class="album__body">
-    <p>
-      <span>{{ album?.city }}</span> -
-      <span>{{ album.year }}</span>
-    </p>
-    <h2>{{ album.title }}</h2>
-    <p>{{ album.artist }}</p>
-    <p>{{ album.players }}</p>
-    <p>{{ album.instruments }}</p>
-    <hr>
-    <h3>Tracklist</h3>
-    <p>Side A</p>
-    <ul>
-      <li *ngFor="let tracklistSideA of album.tracklistSideA">
-        <span>{{ album.tracklistSideA }}</span> -
-        <span>{{ album.tracklistDurationSideA }}</span>
-      </li>
-    </ul>
-    <p>Side B</p>
+    <header class="album__header">
+      <h1 class="album__title">
+        <strong>#{{ album.id }}</strong>
+        <br>
+        <span>{{ album.title }}</span>
+      </h1>
+      <h2>{{ album.artist }}</h2>
+      <p>{{ album?.city }} - {{ album.year }}</p>
+    </header>
     <ul>
       <li>
-        <span>{{ album.tracklistSideB }}</span> -
-        <span>{{ album.tracklistDurationSideB }}</span>
+        <strong>Intérpretes:</strong>
+      </li>
+      <li *ngFor="let player of album.players">{{ player.player }} - {{ player.instrument }}</li>
+    </ul>
+    <ul>
+      <li>
+        <strong>Side A:</strong>
+      </li>
+      <li *ngFor="let item of album.tracklistSideA">
+        <span>{{ item.name }}</span> -
+        <span>{{ item.duration }}</span>
       </li>
     </ul>
-    <hr>
-    <p>{{ album.gift }}</p>
-    <p>{{ album.date }}</p>
-    <p>{{ album.comments }}</p>
+    <ul>
+      <li>
+        <strong>Side B:</strong>
+      </li>
+      <li *ngFor="let item of album.tracklistSideB">
+        <span>{{ item.name }}</span> -
+        <span>{{ item.duration }}</span>
+      </li>
+    </ul>
+    <div class="album__comments">
+      <h3>{{ album.about.date }}</h3>
+      <p>
+        <strong>Regalo de:</strong> {{ album.about.gift }}
+        <br> {{ album.about.comments }}</p>
+    </div>
   </div>
-</div>
+</article>

@@ -15,20 +15,20 @@ a {
     height: 80%;
     background-color: var(--primary-color);
     position: absolute;
-    top: 0.25rem;
+    top: 0.5rem;
     left: 0;
     z-index: -1;
     transform: rotate(-2deg);
     will-change: width, background-color;
     transition: all 300ms ease;
-    opacity: 0.4;
-    clip-path: polygon(100% 0, 100% 85%, 75% 100%, 0 80%, 0 0);
+    opacity: 0.75;
+    clip-path: polygon(90% 15%, 95% 80%, 80% 90%, 0 70%, 0 0);
   }
 
   &:hover,
   &:focus {
     &::after {
-      clip-path: polygon(100% 0, 95% 80%, 50% 100%, 0 100%, 0 0);
+      clip-path: polygon(100% 0, 100% 75%, 70% 100%, 0 80%, 0 0);
     }
   }
 }
