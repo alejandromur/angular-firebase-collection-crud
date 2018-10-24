@@ -21,6 +21,8 @@ $namespace: "mamutlove";
   --tertiary-color: #6b3870;
   --tertiary-lighten-color: lighten(var(--tertiary-color), 10%);
   --tertiary-darken-color: darken(var(--tertiary-color), 10%);
+  --red-color: #FD4855;
+  --yellow-color: #FFE600;
 }
 
 // Generic Colours
@@ -50,6 +52,9 @@ $vars: (
   --button-color: var(--primary-color),
   --button-hover-color: var(--primary-lighten-color),
   --button-text-color: $text-button-color,
+  --button-secondary-color: var(--tertiary-color),
+  --button-secondary-hover-color: var(--tertiary-lighten-color),
+  --button-secondary-text-color: $text-button-color,
   --transparent: $transparent
 );
 

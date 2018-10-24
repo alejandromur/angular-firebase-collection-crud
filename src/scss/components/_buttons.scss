@@ -1,12 +1,11 @@
 %button-base {
-  display: inline-block;
+  display: inline-flex;
   @include cssVars(background-color, --transparent);
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   @include style(1.125rem, currentColor, $ff-sans-serif);
-  font-weight: $bold;
   line-height: 1.4;
   transition: background-color 250ms $ease-in;
   text-decoration: none;
@@ -19,31 +18,64 @@
     transition: background-color 200ms $ease-in;
   }
 
-  @include mq($from: tablet) {
-    padding: 1rem 2.5rem;
+  & ~ & {
+    margin-left: 0.5rem;
+  }
+
+  > svg {
+    width: 1rem;
+    height: 1rem;
   }
 }
 
 %button {
   @extend %button-base;
+  color: var(--secondary-color);
+  background-color: var(--secondary-lighten-color);
 }
 
 %button-primary {
-  @extend %button;
-  @include cssVars(color, --button-text-color);
-  @include cssVars(background-color, --button-color);
+  // @include cssVars(color, --button-text-color);
+  // @include cssVars(background-color, --button-color);
 
   &:focus,
   &:hover {
-    @include cssVars(background-color, --button-hover-color);
+    background-color: var(--primary-color);
+    // @include cssVars(background-color, --button-hover-color);
+  }
+}
+
+%button-secondary {
+
+  &:focus,
+  &:hover {
+    background-color: var(--yellow-color);
+  }
+}
+
+%button-tertiary {
+  // @include cssVars(color, --button-text-color);
+  // @include cssVars(background-color, --button-secondary-color);
+
+  &:focus,
+  &:hover {
+    background-color: var(--red-color);
+    // @include cssVars(color, --button-secondary-color);
+    // @include cssVars(background-color, --button-secondary-hover-color);
   }
 }
 
 .button-primary {
   @extend %button;
   @extend %button-primary;
+}
 
-  & ~ & {
-    margin-left: 1rem;
-  }
+.button-secondary {
+  @extend %button;
+  @extend %button-secondary;
+}
+
+.button-tertiary {
+  @extend %button;
+  @extend %button-tertiary;
 }
