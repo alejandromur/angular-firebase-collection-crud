@@ -1,0 +1,191 @@
+<section class="form-wrapper">
+
+  <h1 *ngIf="isEditing; else newAlbumHeader">
+    Editar '{{ albumService.selectedAlbum.title }}'
+  </h1>
+
+  <form [formGroup]="albumForm" (ngSubmit)="onSubmit(albumForm)">
+
+    <!-- <pre>{{albumForm.value | json}}</pre> -->
+    <!-- <pre>Dirty ?  {{albumForm.controls.id.dirty}}</pre>
+    <pre>Pristine ?  {{albumForm.controls.id.pristine}}</pre>
+    <pre>Touched ?  {{albumForm.controls.id.touched}}</pre>
+    <pre>Untouched ?  {{albumForm.controls.id.untouched}}</pre>
+    <pre>Valid ?  {{albumForm.controls.id.valid}}</pre>
+    <pre>Unvalid ? {{albumForm.controls.id.unvalid}}</pre> -->
+
+    <input type="hidden" formControlName="$key">
+
+    <fieldset>
+      <legend>Datos básicos</legend>
+      <div class="form-group">
+        <div class="form-field">
+          <label for="id">Número en la colección</label>
+          <input type="text" id="id" formControlName="id">
+          <small *ngIf="(albumForm.controls.id.errors?.required || albumForm.controls.id.errors?.pattern) && (albumForm.controls.id.dirty || albumForm.controls.id.touched)">
+            Indica el número que ocupa en la colección
+          </small>
+        </div>
+        <div class="form-field">
+          <label for="title">Título del disco</label>
+          <input type="text" id="title" formControlName="title">
+          <small *ngIf="albumForm.controls.title.errors?.required && (albumForm.controls.title.dirty || albumForm.controls.title.touched)">
+            Indica el título del disco
+          </small>
+        </div>
+        <div class="form-field">
+          <label for="artist">Autor</label>
+          <input type="text" id="artist" formControlName="artist">
+          <small *ngIf="albumForm.controls.artist.errors?.required && (albumForm.controls.artist.dirty || albumForm.controls.artist.touched)">
+            Indica el autor
+          </small>
+        </div>
+        <div class="form-field">
+          <label for="city">Ciudad</label>
+          <input type="text" id="city" formControlName="city">
+        </div>
+        <div class="form-field">
+          <label for="year">Año</label>
+          <input type="number" id="year" formControlName="year">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Portada</legend>
+      <div class="form-group">
+        <div class="form-field">
+          <label for="path">Ruta de la portada</label>
+          <input type="text" id="path" formControlName="path">
+        </div>
+        <div class="form-field">
+          <label for="alt">Alternativa para la imagen</label>
+          <input type="text" id="alt" formControlName="alt">
+        </div>
+        <div class="form-field">
+          <label for="linkVideo">Link al vídeo</label>
+          <input type="text" id="linkVideo" formControlName="linkVideo">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Intérpretes y pistas</legend>
+      <div class="form-group">
+        <fieldset formArrayName="players" class="form-fieldset" [ngClass]="{
+          'has-action': albumForm.get('players').controls.length > 1
+        }">
+          <legend>Intérpretes:</legend>
+          <button type="button" class="button-primary" (click)="addItem()">+</button>
+          <div *ngFor="let player of albumForm.get('players').controls; let i=index">
+            <div [formGroupName]="i" class="form-group">
+              <div class="form-field">
+                <label for="name{{i}}">Nombre</label>
+                <input type="text" id="name{{i}}" formControlName="name">
+              </div>
+              <div class="form-field">
+                <label for="instrument{{i}}">Instrumento</label>
+                <input type="text" id="instrument{{i}}" formControlName="instrument">
+              </div>
+              <button class="button-tertiary" (click)="removePlayer(i)" *ngIf="albumForm.controls.players.controls.length > 1"><span>+</span></button>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset formArrayName="tracklistA" class="form-fieldset" [ngClass]="{
+          'has-action': albumForm.get('tracklistA').controls.length > 1
+        }">
+          <legend>Pistas Cara A:</legend>
+          <button type="button" class="button-primary" (click)="addItemTrack(true)">+</button>
+          <div *ngFor="let atrack of albumForm.get('tracklistA').controls; let i=index">
+            <div [formGroupName]="i" class="form-group">
+              <div class="form-field">
+                <label for="tracklistAName{{i}}">Nombre</label>
+                <input type="text" id="tracklistAName{{i}}" formControlName="name">
+              </div>
+              <div class="form-field">
+                <label for="tracklistADuration{{i}}">Duración</label>
+                <input type="text" id="tracklistADuration{{i}}" formControlName="duration">
+              </div>
+              <button class="button-tertiary" (click)="removeTrack(i, true)" *ngIf="albumForm.controls.tracklistA.controls.length > 1"><span>+</span></button>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset formArrayName="tracklistB" class="form-fieldset" [ngClass]="{
+          'has-action': albumForm.get('tracklistB').controls.length > 1
+        }">
+          <legend>Pistas Cara B:</legend>
+          <button type="button" class="button-primary" (click)="addItemTrack(false)">+</button>
+          <div *ngFor="let btrack of albumForm.get('tracklistB').controls; let i=index">
+            <div [formGroupName]="i" class="form-group">
+              <div class="form-field">
+                <label for="tracklistBName{{i}}">Nombre</label>
+                <input type="text" id="tracklistBName{{i}}" formControlName="name">
+              </div>
+              <div class="form-field">
+                <label for="tracklistBDuration{{i}}">Duración</label>
+                <input type="text" id="tracklistBDuration{{i}}" formControlName="duration">
+              </div>
+              <button class="button-tertiary" (click)="removeTrack(i, false)" *ngIf="albumForm.controls.tracklistB.controls.length > 1"><span>+</span></button>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contexto personal</legend>
+      <div class="form-group" formGroupName="about">
+        <div class="form-field">
+          <label for="gift">Regalo de</label>
+          <input type="text" id="gift" formControlName="gift">
+          <small *ngIf="gift.errors?.required && (gift.dirty || gift.touched)">
+            Indica quién lo compró
+          </small>
+        </div>
+        <div class="form-field">
+          <label for="date">Fecha</label>
+          <input type="text" id="date" formControlName="date">
+          <small *ngIf="date.errors?.required && (date.dirty || date.touched)">
+            Indica en qué fecha fue
+          </small>
+        </div>
+        <div class="form-field form-field--full">
+          <label for="comments">Comentarios</label>
+          <textarea id="comments" formControlName="comments"></textarea>
+          <small *ngIf="comments.errors?.required && (comments.dirty || comments.touched)">
+            Introduce un comentario de aquel momento
+          </small>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="form-field form-field--actions" *ngIf="isEditing; else newAlbumButtons">
+      <button class="button-primary" type="submit" [disabled]="!albumForm.valid">
+        Guardar cambios
+      </button>
+
+      <button class="button-tertiary" [routerLink]="['../../', 'list']" type="button">
+        Cancelar
+      </button>
+    </div>
+  </form>
+
+  <ng-template #newAlbumHeader>
+    <h1>Guardar nuevo disco</h1>
+  </ng-template>
+
+  <ng-template #newAlbumButtons>
+    <div class="form-field form-field--actions">
+      <button class="button-primary" type="submit" [disabled]="!albumForm.valid">
+        Guardar
+      </button>
+
+      <button class="button-tertiary" type="reset" (click)="resetForm(albumForm)">
+        Limpiar formulario
+      </button>
+    </div>
+  </ng-template>
+
+</section>

@@ -1,11 +1,12 @@
 %button-base {
   display: inline-flex;
-  @include cssVars(background-color, --transparent);
+  background-color: var(--transparent);
   border: none;
   outline: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
-  @include style(1.125rem, currentColor, $ff-sans-serif);
+  font-size: 1.125rem;
+  color: currentColor;
   line-height: 1.4;
   transition: background-color 250ms $ease-in;
   text-decoration: none;
@@ -32,16 +33,18 @@
   @extend %button-base;
   color: var(--secondary-color);
   background-color: var(--secondary-lighten-color);
+
+  &[disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
 
 %button-primary {
-  // @include cssVars(color, --button-text-color);
-  // @include cssVars(background-color, --button-color);
 
   &:focus,
   &:hover {
     background-color: var(--primary-color);
-    // @include cssVars(background-color, --button-hover-color);
   }
 }
 
@@ -54,14 +57,10 @@
 }
 
 %button-tertiary {
-  // @include cssVars(color, --button-text-color);
-  // @include cssVars(background-color, --button-secondary-color);
 
   &:focus,
   &:hover {
     background-color: var(--red-color);
-    // @include cssVars(color, --button-secondary-color);
-    // @include cssVars(background-color, --button-secondary-hover-color);
   }
 }
 

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { AlbumComponent } from '../../components/album/album.component';
-import { AlbumModule } from '../../components/album/album.module';
+import { AlbumModule } from '../album/album.module';
 
 @NgModule({
   declarations: [

@@ -4,24 +4,23 @@
 // ---------
 // DEV ALERT
 // ---------
-// Alerta para mensajes de desarrollo
-
 .dev {
-    padding: 0.5rem 1rem;
-    margin: 1rem 0;
-    @include style(1rem,palette(white,dark));
-    text-align: center;
-    background: $dev;
-    border-bottom: 3px solid darken($dev,10%);
-    border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: var(--white-color);
+  text-align: center;
+  background: $dev;
+  border-bottom: 3px solid darken($dev,10%);
+  border-radius: 0.25rem;
 
-    &:hover {
-        background: lighten($dev,5%);
-    }
+  &:hover {
+      background: lighten($dev,5%);
+  }
 
-    &--img {
-      height: 260px;
-    }
+  &--img {
+    height: 260px;
+  }
 }
 
 

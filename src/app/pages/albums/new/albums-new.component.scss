@@ -1,0 +1,15 @@
+@import "src/scss/config/mq";
+@import "src/scss/config/fonts";
+
+.form-wrapper {
+  max-width: 45rem;
+  padding: 1rem;
+
+  @include mq($from: desktop) {
+    padding: 2rem;
+  }
+
+  h1 {
+    font-weight: $bold;
+  }
+}

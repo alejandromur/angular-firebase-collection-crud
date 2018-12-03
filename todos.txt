@@ -1,0 +1,74 @@
+DONE:
+----------------
+* ordenar discos en el listado por ID
+* Añadir botón BORRAR en cada disco del listado
+* El listado más corto, solo lo principal:
+- Foto
+- ID
+- Título
+- Autor
+- Fecha / Lugar
+* Guardar ID en el formulario
+* Añadir botón EDITAR en cada disco del listado
+* Cuando eliminas que te pregunte si seguro que quieres eliminar
+* Dar estilo a los botones
+* Añadir botón VER MAS en cada disco del listado
+* Limpiar al iniciar el formulario nuevo
+* Adecentar un poco el formulario
+* Si edito el literal del botón GUARDAR que sea ACTUALIZAR
+* Enlance del disco a Youtu bw
+* Volver al listado tras actualizar/guardar un album
+* Si edito el BOTON BORRAR tiene que ser cancelar
+* Cuando entro no puedo entrar en editar o nuevo album
+* Validar el formulario
+* Probar REACTIVE FORMS
+* Editar no recupera los datos
+* Solo hacer REQUIRED lo imprescindible
+* Hacer Scroll top al cambiar la ruta
+* Poder guardar un Array de objetos 'artista' 'instrumento' y aplicar misma estructura para tracks side A y B
+* Cambiar los iconos o nombrar los autores
+* Cambiar UI
+  * El menú porque no se entiende nada
+* Cargar datos
+* Poner orden en los estilos
+* Corregir enlaces Welcome
+* Corregir enlaces 404
+* Hacer un logo
+* QUitar icono Youtube de fontawesome
+* Meter un editar en la ficha del disco
+
+
+DOING:
+----------------
+  0.1.0: (26-30/11)
+  ----------------
+  * Hacer despliegue
+    * Duplicar base de datos
+    * Rellenar readme
+    * Limpiar componentes
+    * Subir a github
+    * Subir a un servidor
+    * Publicar en twitter
+
+
+1.1.0: (3-7/12)
+----------------
+* Refactorizar las fn de nuevo array y borrar
+* Dar formato a la fecha dd/mm/aaaa en el campo type date
+* Marcar en editar/ activo el item del formulario
+* Hacer momento cero
+
+1.2.0: (5-9/12)
+----------------
+* Animar los iconos SVG
+* Foto por defecto si no meto la de verdad
+* Poder usar una imagen de internet
+* Campos multiples (tracks) versión mobile no es cómodo
+
+2.0.0: (10-15/12)
+----------------
+* Sustituir iconos Welcome y NotFound
+* Guardar en localstorage los datos si ya los he pedido
+* Si no hay link de Youtube que no haya Hover/focus
+* Sprite de SVG y usar USE
+* Paginar

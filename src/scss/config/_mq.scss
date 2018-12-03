@@ -40,16 +40,10 @@ $mq-breakpoints: (
     tablet_small: 37.5em, // 600px
     tablet_medium: 40em, // 640px
     tablet: 48em, // 768px
-    tablet_weird: 52.5em, // 840px
     tablet_large: 64em, // 1024px
     desktop: 62em, // 992px
-    desktop_wrap: 73.75em, // 1180px
-    screen_lg_min: 75em, // 1200px
-    desktop_wide: 80em, // 1280px
-    desktop_large_padding: 82em, // 1312px,
-    extralarge: 87.5em, // 1400px
-    desktop_max_width: 93.75em, // 1500px
-    desktop_wider: 100em // 1600px
+    desktop_medium: 73.75em, // 1180px
+    desktop_large: 87.5em // 1400px
 ) !default;
 // desktop: 60em, // 960px
 

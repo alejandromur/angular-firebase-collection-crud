@@ -1,0 +1,9 @@
+@keyframes show {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}

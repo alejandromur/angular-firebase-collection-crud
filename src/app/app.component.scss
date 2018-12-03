@@ -1,0 +1,14 @@
+@import "src/scss/config/mq";
+
+.app-main {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4rem auto;
+  min-height: 100vh;
+
+  @include mq($from: tablet) {
+    grid-template-columns: 15.25rem auto;
+    grid-template-rows: auto;
+  }
+}

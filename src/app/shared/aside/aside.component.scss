@@ -1,34 +1,117 @@
-aside {
-  height: 100%;
-  background: var(--secondary-lighten-color);
+@import "src/scss/config/mq";
+@import "src/scss/config/variables";
+@import "src/scss/config/colors";
+@import "src/scss/config/animations";
+
+collection-aside {
+  grid-column: 1 / span 3;
+  grid-row: 1 / 2;
+
+  @include mq($from: tablet) {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+  }
 }
 
-ul {
+.aside {
+  height: 100%;
+  background: var(--aside-color);
+
+  &__navigation {
     display: flex;
     flex-direction: row;
 
-    @media screen and (min-width: 48em) {
+    @include mq($from: tablet) {
       display: block;
+      position: fixed;
+      width: 15.25rem;
     }
+
+    li:not(.logo) + li {
+
+      @include mq($from: tablet) {
+        border-top: 1px solid var(--aside-separator-color);
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    padding: 1rem;
+    border: 1px solid var(--primary-darken);
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 200ms ease;
+
+    &.is-active {
+      font-weight: 700;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--aside-separator-color);
+    }
+
+    @include mq($from: tablet) {
+      height: auto;
+    }
+
+    span {
+      display: none;
+
+      @include mq($from: tablet) {
+        display: inline-block;
+        margin-left: 0.5rem;
+      }
+    }
+  }
 }
 
-a {
-  display: flex;
-  padding: 1rem 1.5rem;
-  border: 1px solid var(--primary-darken);
-  color: var(--secondary-color);
-  background-color: var(--secondary-lighten-color);
-  text-decoration: none;
-  transition: all 200ms ease;
+.logo {
+  margin-right: auto;
+  opacity: 0;
+  transform: translate(0, 2rem);
+  animation: show 1200ms $ease-out 100ms forwards;
+
+  @include mq($from: tablet) {
+    margin-bottom: 3rem;
+  }
 
   &:hover,
   &:focus {
-    color: var(--primary-color);
-    background-color: var(--secondary-darken-color);
+
+    #lines {
+      transform: rotate(1turn);
+    }
   }
 
-  svg,
-  path {
-    fill: currentColor;
+  svg {
+    width: 2rem;
+    height: 2rem;
+
+    @include mq($from: tablet) {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    #lines {
+      transform-origin: center;
+      transition: transform $ultraSlow $ease-in;
+    }
   }
+}
+
+
+.aside__legal {
+  display: none;
+
+  @include mq($from: tablet) {
+    display: block;
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+  }
+
 }

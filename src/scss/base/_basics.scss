@@ -12,7 +12,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-  font-family: $ff-sans-serif, Arial, sans-serif;
+  font-family: $ff-serif, Arial, sans-serif;
   font-size: 1em;
   line-height: 1.4;
   box-sizing: border-box;
@@ -28,16 +28,15 @@ body {
   line-height: 1.4;
 }
 
-img,
-iframe,
-video {
-  vertical-align: middle;
-}
-
 fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+  padding: 1.5rem;
+  border-color: var(--secondary-darken-color);
+  border-color: var(--secondary-lighten-color);
+  border-radius: $radius;
+
+  & + & {
+    margin-top: 1rem;
+  }
 }
 
 textarea {
@@ -50,10 +49,6 @@ img {
   height: auto;
 }
 
-iframe {
-  outline: 0;
-}
-
 menu,
 ul,
 ol,
@@ -64,6 +59,23 @@ dd {
   list-style-type: none;
 }
 
+ol {
+  counter-reset: item;
+
+  > li{
+    padding-left: 1rem;
+    position: relative;
+
+    &::before {
+      counter-increment: item;
+      content: counters(item,".") " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
 h1,
 h2,
 h3,
@@ -72,9 +84,13 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: $ff-sans-serif;
+  font-family: $ff-serif;
   font-weight: normal;
   line-height: 1.2;
+}
+
+h1 {
+  margin-bottom: 1rem;
 }
 
 p {
@@ -88,72 +104,23 @@ hr {
   background-color: $transparent;
 }
 
+a {
+  color: var(--secondary-color);
+  transition: color $medium $ease-in;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color);
+    outline: none;
+  }
+}
+
 ::-moz-selection {
-  color: palette(white);
+  color: var(--white-color);
   background-color: var(--primary-color);
 }
 
 ::selection {
-  color: palette(white);
+  color: var(--white-color);
   background-color: var(--primary-color);
-}
-
-a {
-  cursor: pointer;
-  @extend %transition;
-}
-
-
-app-root {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.app-header,
-.app-footer {
-  flex: 0 0 auto;
-  display: block;
-  padding: 1rem;
-  background: var(--secondary-color);
-}
-
-.app-main {
-  flex: 1 1 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 56px auto;;
-  min-height: calc(100vh - 130px);
-
-  @include mq($from: tablet) {
-    // grid-template-columns: 16rem auto;
-    grid-template-columns: 4.5rem auto;
-  }
-}
-
-
-collection-aside {
-  grid-column: 1 / span 3;
-  grid-row: 1 / 2;
-
-  @include mq($from: tablet) {
-    grid-row: 1 / 3;
-    grid-column: 1 / 2;
-  }
-}
-
-collection-main {
-  grid-column: 1 / span 3;
-  grid-row: 2 / 3;
-
-  @include mq($from: tablet) {
-    grid-row: 1 / 3;
-    grid-column: 2 / span 2;
-  }
-}
-
-collection-album {
-  display: block;
-  width: 100%;
-  margin-bottom: 2rem;
 }

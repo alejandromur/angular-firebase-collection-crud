@@ -1,47 +1,34 @@
-// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 
 // Config
 // ------------
-@import "./scss/config/mq";
-@import "./scss/config/functions";
-@import "./scss/config/mixins";
-@import "./scss/config/variables";
-@import "./scss/config/colors";
-@import "./scss/config/media-queries";
-@import "./scss/config/fonts";
-@import "./scss/config/placeholders";
-@import "./scss/config/grid";
+@import './scss/config/mq';
+@import './scss/config/functions';
+@import './scss/config/mixins';
+@import './scss/config/variables';
+@import './scss/config/colors';
+@import './scss/config/fonts';
+@import './scss/config/animations';
 // @import 'config/debug';
 
 // Base
 // ------------
-@import "./scss/base/normalize";
-@import "./scss/base/basics";
-@import "./scss/base/utils";
-
-// Lib
-// ------------
+@import './scss/base/normalize';
+@import './scss/base/basics';
+@import './scss/base/utilities';
 
 // Layout
 // ------------
-@import "./scss/layout/base";
-@import "./scss/layout/header";
-@import "./scss/layout/navigation";
+@import './scss/layout/base';
+@import './scss/layout/shared';
 
 // Components
 // ------------
-@import "./scss/components/buttons";
-@import "./scss/components/alerts";
-@import "./scss/components/forms";
-@import "./scss/components/dropdown";
-@import "./scss/components/logo";
+@import './scss/components/disclaimer';
+@import './scss/components/buttons';
+@import './scss/components/forms';
 
 // Pages
 // ------------
-
-// Overrides
-// -------------------------
-
-// Browsers hacks
-// -------------------------
+@import './scss/pages/page-default';

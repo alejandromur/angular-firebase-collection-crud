@@ -1,0 +1,111 @@
+@import "src/scss/config/mq";
+@import "src/scss/config/variables";
+@import "src/scss/config/colors";
+@import "src/scss/config/animations";
+@import "src/scss/config/fonts";
+
+.sheet {
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    @include mq($from: mobile_landscape) {
+      flex-direction: row;
+    }
+
+    @include mq($from: desktop) {
+      padding: 2rem;
+    }
+  }
+
+  &__info {
+    max-width: 30rem;
+    padding: 0 1rem;
+
+    &__heading {
+      margin-bottom: 0.25rem;
+      font-size: 1.5rem;
+      font-weight: $bold;
+
+      strong {
+        display: inline-block;
+        margin-bottom: 0.25rem;
+      }
+    }
+
+    &__subheading {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      color: var(--secondary-darken-color);
+      position: relative;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 2rem;
+        height: 2px;
+        background: var(--primary-color);
+        position: absolute;
+        bottom: -0.5rem;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    @include mq($from: desktop) {
+      flex-direction: row;
+      padding: 2rem;
+    }
+
+    // TYPES
+    // ------------------
+    &--coloured {
+      background-color: var(--gray-color);
+
+      + .sheet__content--coloured {
+
+        @include mq($from: desktop) {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+
+  &__col {
+    flex: 0 1 50%;
+    padding-right: 1rem;
+
+    @include mq($from: tablet) {
+      padding-right: 2rem;
+    }
+
+    + .sheet__col {
+      margin-top: 1rem;
+
+      @include mq($from: desktop) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 2px;
+      background: var(--primary-color);
+      position: absolute;
+      bottom: -0.5rem;
+    }
+  }
+}

@@ -1,148 +1,49 @@
-.wrapper {
+app-root {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1rem;
+}
 
-  @include mq($from: tablet) {
-    padding: 2rem;
-  }
+collection-welcome {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  // MODIFIERS
-  // ---------
-  &.-padded {
-    padding: 2rem;
+collection-album {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  background: var(--white-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 1rem 0 var(--gray-color);
+  color: var(--secondary-color);
+  transition: box-shadow $slow $ease-in, transform $fast $ease-in, color $slow $ease-in;
 
-    @include mq($from: tablet) {
-      padding: 4rem;
+  &:hover,
+  &:focus {
+    opacity: 1;
+    color: var(--primary-color);
+    box-shadow: 0 0 1.5rem 0 var(--gray-color);
+    transform: translate3d(0, -0.5rem, 0);
+
+    .card__info__subheading {
+      color: var(--primary-color);
     }
-  }
-
-  &.-left {
-    align-items: flex-start;
-  }
-}
-
-h1 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-
-  // @include mq($from: tablet) {
-  //   margin-bottom: 5rem;
-  //   margin-top: 3rem;
-  // }
-}
-
-svg {
-  width: 14rem;
-
-  @include mq($from: tablet) {
-    width: 20rem;
-  }
-
-  a > & {
-    width: 2rem;
-  }
-}
-
-
-
-
-
-
-
-
-.wrapper-title {
-  display: inline-block;
-  text-align: center;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-
-  @include mq($from: tablet) {
-    margin-bottom: 2rem;
   }
 
   @include mq($from: desktop) {
-    margin-bottom: 2.5rem;
-  }
-}
-.title {
-  margin-top: 0;
-  margin-bottom: 0;
-  @include style(2.5rem, $text-color);
-  position: relative;
-
-  &::before {
-    content: "";
-    display: inline-block;
-    width: 3.5rem;
-    height: 0.5rem;
-    background-color: var(--primary-color);
-    position: absolute;
-    top: -0.5rem;
-    left: 0;
+    max-width: 18.25rem;
   }
 
-  @include mq($from: tablet) {
-    font-size: 3rem;
-  }
-
-  @include mq($from: desktop) {
-    font-size: 3.5rem;
-  }
-}
-
-.text {
-  margin-top: 0;
-  margin-bottom: 0;
-  @include style(1.25rem, $text-color, $ff-sans-serif);
-
-  @include mq($from: tablet) {
-    font-size: 1.25rem;
-  }
-}
-
-.wrapper-buttons {
-  margin-top: 2rem;
-
-  @include mq($from: tablet) {
-    margin-top: 3rem;
-
-    .--forms & {
-      margin-top: 2rem;
-    }
-  }
-}
-.buttons {
-  text-align: center;
-}
-
-.subtitle {
-  @include col-flex;
-  @include style(1.5rem, $text-color);
-  margin-top: 0;
-  margin-bottom: 0;
-
-  @include mq($from: tablet) {
-    @include style(2.25rem, $text-color);
-  }
-
-  .--forms & {
-    margin-bottom: 0.5rem;
+  + collection-album {
+    margin-top: 1rem;
 
     @include mq($from: tablet) {
-      margin-bottom: 1.5rem;
+      margin-top: 0;
     }
   }
-}
-
-.wrapper-icons {
-  @include col-flex;
-  margin-top: 1.5rem;
-}
-.icon {
-  color: var(--tertiary-color);
-  font-size: 8rem;
 }

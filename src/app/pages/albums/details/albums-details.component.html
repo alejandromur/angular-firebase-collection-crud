@@ -1,0 +1,70 @@
+<section class="sheet">
+
+  <header class="sheet__header">
+    <a class="media" href="{{ album.linkVideo }}" target="_blank">
+      <img src="assets/images/{{ album.path }}" alt="{{ album.alt }}">
+      <svg aria-hidden="true" data-prefix="fab" data-icon="youtube" class="svg-inline--fa fa-youtube fa-w-18" role="img"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
+      </svg>
+    </a>
+    <div class="sheet__info">
+      <h1 class="sheet__info__heading">
+        <strong>#{{ album.id }}</strong>
+        <br>
+        <span>{{ album.title }}</span>
+      </h1>
+      <h2 class="sheet__info__subheading">{{ album.artist }}</h2>
+      <!-- <p>{{ album?.city }} - {{ album.year | date: 'yyyy' }}</p> -->
+      <p class="sheet__info__text">{{ album?.city }} - {{ album.year }}</p>
+      <button [routerLink]="['../edit', album.id]" class="button-secondary" (click)="onEdit(album)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 64 64">
+          <path fill="#333333" d="M60.5,58.1c0,1.4-1.1,2.5-2.5,2.5H6c-1.4,0-2.5-1.1-2.5-2.5v-45c0-1.4,1.1-2.5,2.5-2.5h16v-3H6
+              c-3,0-5.5,2.5-5.5,5.5v45c0,3,2.5,5.5,5.5,5.5h52c3,0,5.5-2.5,5.5-5.5V25h-3V58.1z" />
+          <path fill="#333333" d="M48.7,7.3L21.5,36l0,0l-1,1.1l-3.7,12.2l12-4.4l1-1.1l0,0L57,15.1l0,0l1.2-1.2l0,0L63.7,8l-8.3-7.9
+              l-3.8,4.1L48.7,7.3L48.7,7.3z M21.8,44.2l-0.4-0.3l1.6-5.1l3.8,3.6L21.8,44.2z M25.7,35.8l0.8-0.9l3.9,3.7l-0.8,0.9L25.7,35.8z
+               M31.6,37.5l-3.9-3.7L50.2,10l3.9,3.7L31.6,37.5z M55.5,4.4l3.9,3.7L58,9.6l-3.9-3.7L55.5,4.4z" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="sheet__content sheet__content--coloured">
+    <div class="sheet__col">
+      <h3 class="sheet__title">Intérpretes:</h3>
+      <ul>
+        <li *ngFor="let player of album.players | values">{{ player.name }} - {{ player.instrument }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sheet__content sheet__content--coloured">
+    <div class="sheet__col">
+      <h3 class="sheet__title">Cara A:</h3>
+      <ol>
+        <li *ngFor="let item of album.tracklistA | values">
+          {{ item.name }} ({{ item.duration }})
+        </li>
+      </ol>
+    </div>
+    <div class="sheet__col">
+      <h3 class="sheet__title">Cara B:</h3>
+      <ol>
+        <li *ngFor="let item of album.tracklistB | values">
+          {{ item.name }} ({{ item.duration }})
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <aside class="sheet__content">
+    <div class="sheet__col">
+      <h3 class="sheet__title">Información relacionada:</h3>
+      <ul>
+        <li>Comprado/regalado por <strong>{{ album.about.gift }}</strong> en/el <strong>{{ album.about.date }}</strong></li>
+        <li>{{ album.about.comments }}</li>
+      </ul>
+    </div>
+  </aside>
+
+</section>
