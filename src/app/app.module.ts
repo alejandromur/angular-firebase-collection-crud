@@ -6,14 +6,14 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 
-import { ReactiveFormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { MainComponent } from './shared/main/main.component';
 import { AsideComponent } from './shared/aside/aside.component';
 import { AlbumService } from './services/album.service';
 import { SortPipe } from './shared/sort.pipe';
 import { ValuesPipe } from './shared/values.pipe';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -84,7 +84,7 @@ const routes: Routes = [{
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [
     AlbumService

@@ -1,6 +1,7 @@
 # CRUD Collection
 
 Generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7. and Firebase
+[DEMO](https://www.mamutlove.com/projects/firebase-collection-crud/)
  
 At this CRUD you could:
 

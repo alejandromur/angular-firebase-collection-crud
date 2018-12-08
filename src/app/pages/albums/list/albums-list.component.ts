@@ -14,7 +14,7 @@ export class AlbumsListComponent implements OnInit {
   constructor(private albumService: AlbumService) { }
 
   ngOnInit() {
-    console.log('pido discos');
+    // console.log('pido discos');
     this.albumService.getAlbums().snapshotChanges().subscribe(item => {
       this.albumsList = [];
       item.forEach(element => {
