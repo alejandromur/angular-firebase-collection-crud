@@ -19,6 +19,7 @@ export class AlbumsListComponent implements OnInit {
       this.albumsList = [];
       item.forEach(element => {
         const x = element.payload.toJSON();
+        // console.log(x['id']);
         x['$key'] = element.key;
         this.albumsList.push(x as AlbumModel);
       });

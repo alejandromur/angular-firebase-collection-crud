@@ -69,7 +69,7 @@ export class AlbumsNewComponent implements OnInit {
       this.comments = new FormControl('', Validators.required);
 
       this.albumForm = this.fb.group({
-        $key: [null, null],
+        $key: [null, Validators.pattern('[0-9]*')],
         id: ['', [Validators.required, Validators.pattern('[0-9]*')]],
         title: ['', Validators.required],
         artist: ['', Validators.required],

@@ -21,7 +21,7 @@
       <div class="form-group">
         <div class="form-field">
           <label for="id">Número en la colección</label>
-          <input type="text" id="id" formControlName="id">
+          <input type="number" id="id" formControlName="id">
           <small *ngIf="(albumForm.controls.id.errors?.required || albumForm.controls.id.errors?.pattern) && (albumForm.controls.id.dirty || albumForm.controls.id.touched)">
             Indica el número que ocupa en la colección
           </small>
