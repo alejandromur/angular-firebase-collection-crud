@@ -1,5 +1,5 @@
 export class AboutModel {
   gift: string;
-  date: string;
+  date: number;
   comments: string;
 }

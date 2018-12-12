@@ -78,9 +78,9 @@ export class AlbumsNewComponent implements OnInit {
         path: ['', null],
         alt: ['', null],
         linkVideo: ['', null],
-        players: this.fb.array([this.createItem()]),
-        tracklistA: this.fb.array([this.createItemTrack()]),
-        tracklistB: this.fb.array([this.createItemTrack()]),
+        players: this.fb.array([this.createItem('player')]),
+        tracklistA: this.fb.array([this.createItem('track')]),
+        tracklistB: this.fb.array([this.createItem('track')]),
         about: this.fb.group({
           gift: this.gift,
           date: this.date,
@@ -140,43 +140,44 @@ export class AlbumsNewComponent implements OnInit {
     }
   }
 
-  createItem(): FormGroup {
-    return this.fb.group({
-      name: '',
-      instrument: ''
-    });
-  }
-
-  createItemTrack(): FormGroup {
-    return this.fb.group({
-      name: '',
-      duration: ''
-    });
-  }
-
-  addItem(): void {
-    this.players = this.albumForm.get('players') as FormArray;
-    this.players.push(this.createItem());
-  }
-
-  addItemTrack(isSideA: boolean): void {
-    if (isSideA) {
-      this.tracklistA = this.albumForm.get('tracklistA') as FormArray;
-      this.tracklistA.push(this.createItemTrack());
+  // Initializes an Object
+  // Keys depends by the parameters: 'player' || 'track'
+  createItem(target: string): FormGroup {
+    if (target === 'player') {
+      return this.fb.group({
+        name: '',
+        instrument: ''
+      });
     } else {
-      this.tracklistB = this.albumForm.get('tracklistB') as FormArray;
-      this.tracklistB.push(this.createItemTrack());
+      return this.fb.group({
+        name: '',
+        duration: ''
+      });
     }
   }
 
-  removePlayer(i: number) {
-    const control = <FormArray>this.albumForm.controls['players'];
-    control.removeAt(i);
+  // Creates an FormArray
+  // Parameters: 'player' || 'sideA' || 'sideB'
+  addItem(target: string): void {
+    if (target === 'player') {
+      this.players = this.albumForm.get('players') as FormArray;
+      this.players.push(this.createItem('player'));
+    } else if (target === 'sideA') {
+      this.tracklistA = this.albumForm.get('tracklistA') as FormArray;
+      this.tracklistA.push(this.createItem('track'));
+    } else {
+      this.tracklistB = this.albumForm.get('tracklistB') as FormArray;
+      this.tracklistB.push(this.createItem('track'));
+    }
   }
 
-  removeTrack(i: number, isSideA: boolean) {
+  // Removes an array position
+  // Parameters: 'player' || 'sideA' || 'sideB', position
+  removeItem(target: string, i: number) {
     let control;
-    if (isSideA) {
+    if (target === 'player') {
+      control = <FormArray>this.albumForm.controls['players'];
+    } else if (target === 'sideA') {
       control = <FormArray>this.albumForm.controls['tracklistA'];
     } else {
       control = <FormArray>this.albumForm.controls['tracklistB'];
@@ -200,9 +201,11 @@ export class AlbumsNewComponent implements OnInit {
       this.listRoute.push('../../list');
       this.albumService.updateAlbum(this.albumForm.value);
     }
+
     this.router.navigate(this.listRoute, {
       relativeTo: this.activatedRoute
     });
+
     this.resetForm(this.albumForm);
   }
 

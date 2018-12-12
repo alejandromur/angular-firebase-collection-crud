@@ -76,7 +76,7 @@
           'has-action': albumForm.get('players').controls.length > 1
         }">
           <legend>Intérpretes:</legend>
-          <button type="button" class="button-primary" (click)="addItem()">+</button>
+          <button type="button" class="button-primary" (click)="addItem('player')">+</button>
           <div *ngFor="let player of albumForm.get('players').controls; let i=index">
             <div [formGroupName]="i" class="form-group">
               <div class="form-field">
@@ -87,7 +87,7 @@
                 <label for="instrument{{i}}">Instrumento</label>
                 <input type="text" id="instrument{{i}}" formControlName="instrument">
               </div>
-              <button class="button-tertiary" (click)="removePlayer(i)" *ngIf="albumForm.controls.players.controls.length > 1"><span>+</span></button>
+              <button class="button-tertiary" (click)="removeItem('player', i)" *ngIf="albumForm.controls.players.controls.length > 1"><span>+</span></button>
             </div>
           </div>
         </fieldset>
@@ -96,7 +96,7 @@
           'has-action': albumForm.get('tracklistA').controls.length > 1
         }">
           <legend>Pistas Cara A:</legend>
-          <button type="button" class="button-primary" (click)="addItemTrack(true)">+</button>
+          <button type="button" class="button-primary" (click)="addItem('sideA')">+</button>
           <div *ngFor="let atrack of albumForm.get('tracklistA').controls; let i=index">
             <div [formGroupName]="i" class="form-group">
               <div class="form-field">
@@ -105,9 +105,9 @@
               </div>
               <div class="form-field">
                 <label for="tracklistADuration{{i}}">Duración</label>
-                <input type="text" id="tracklistADuration{{i}}" formControlName="duration">
+                <input type="number" id="tracklistADuration{{i}}" formControlName="duration">
               </div>
-              <button class="button-tertiary" (click)="removeTrack(i, true)" *ngIf="albumForm.controls.tracklistA.controls.length > 1"><span>+</span></button>
+              <button class="button-tertiary" (click)="removeItem('sideA', i)" *ngIf="albumForm.controls.tracklistA.controls.length > 1"><span>+</span></button>
             </div>
           </div>
         </fieldset>
@@ -116,7 +116,7 @@
           'has-action': albumForm.get('tracklistB').controls.length > 1
         }">
           <legend>Pistas Cara B:</legend>
-          <button type="button" class="button-primary" (click)="addItemTrack(false)">+</button>
+          <button type="button" class="button-primary" (click)="addItem('sideB')">+</button>
           <div *ngFor="let btrack of albumForm.get('tracklistB').controls; let i=index">
             <div [formGroupName]="i" class="form-group">
               <div class="form-field">
@@ -125,9 +125,9 @@
               </div>
               <div class="form-field">
                 <label for="tracklistBDuration{{i}}">Duración</label>
-                <input type="text" id="tracklistBDuration{{i}}" formControlName="duration">
+                <input type="number" id="tracklistBDuration{{i}}" formControlName="duration">
               </div>
-              <button class="button-tertiary" (click)="removeTrack(i, false)" *ngIf="albumForm.controls.tracklistB.controls.length > 1"><span>+</span></button>
+              <button class="button-tertiary" (click)="removeItem('sideB', i)" *ngIf="albumForm.controls.tracklistB.controls.length > 1"><span>+</span></button>
             </div>
           </div>
         </fieldset>
@@ -146,7 +146,7 @@
         </div>
         <div class="form-field">
           <label for="date">Fecha</label>
-          <input type="text" id="date" formControlName="date">
+          <input type="number" id="date" formControlName="date">
           <small *ngIf="date.errors?.required && (date.dirty || date.touched)">
             Indica en qué fecha fue
           </small>
