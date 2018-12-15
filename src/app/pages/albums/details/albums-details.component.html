@@ -1,7 +1,7 @@
 <section class="sheet">
 
   <header class="sheet__header">
-    <a class="media" href="{{ album.linkVideo }}" target="_blank">
+    <a class="media" href="{{ album.linkVideo }}" target="_blank" *ngIf="album.linkVideo; else noLinkToVideo">
       <img src="assets/images/{{ album.path }}" alt="{{ album.alt }}">
       <svg aria-hidden="true" data-prefix="fab" data-icon="youtube" class="svg-inline--fa fa-youtube fa-w-18" role="img"
         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -68,3 +68,9 @@
   </aside>
 
 </section>
+
+<ng-template #noLinkToVideo>
+  <div class="media__empty-figure">
+    No hay imagen
+  </div>
+</ng-template>

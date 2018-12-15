@@ -79,3 +79,24 @@
     transition: opacity $medium $ease-in 50ms, transform $fast $ease-in 150ms;
   }
 }
+
+.media__empty-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 12.5rem;
+  height: 56.25%;
+  color: var(--secondary-color);
+  background: var(--secondary-lighten-color);
+
+  @include mq($from: mobile_landscape) {
+    width: 50%;
+    height: 50%;
+  }
+
+  @include mq($from: desktop) {
+    width: 22.5rem;
+    height: 22.5rem;
+  }
+}
