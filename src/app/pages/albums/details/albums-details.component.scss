@@ -22,7 +22,11 @@
 
   &__info {
     max-width: 30rem;
-    padding: 0 1rem;
+    padding: 1rem 1rem 0;
+
+    @include mq($from: mobile_landscape) {
+      padding: 0 1rem;
+    }
 
     &__heading {
       margin-bottom: 0.25rem;

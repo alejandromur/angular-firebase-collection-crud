@@ -16,8 +16,9 @@
   }
 }
 
-.media {
+a.media {
   width: 100%;
+  text-decoration: none;
   position: relative;
 
   &::after {
@@ -80,6 +81,19 @@
   }
 }
 
+div.media {
+  width: 100%;
+
+  @include mq($from: mobile_landscape) {
+    height: 50%;
+  }
+
+  @include mq($from: desktop) {
+    width: 22.5rem;
+    height: 22.5rem;
+  }
+}
+
 .media__empty-figure {
   display: flex;
   justify-content: center;
@@ -91,7 +105,6 @@
   background: var(--secondary-lighten-color);
 
   @include mq($from: mobile_landscape) {
-    width: 50%;
     height: 50%;
   }
 
