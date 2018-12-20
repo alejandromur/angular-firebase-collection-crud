@@ -9,7 +9,6 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { environment } from '../environments/environment';
 
-import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { SortPipe } from './shared/sort.pipe';
@@ -18,6 +17,8 @@ import { FileSizePipe } from './shared/file-size.pipe';
 
 import { AlbumService } from './services/album.service';
 import { DropZoneDirective } from './directives/drop-zone.directive';
+
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './shared/main/main.component';
@@ -30,48 +31,6 @@ import { AlbumsListComponent } from './pages/albums/list/albums-list.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { AlbumsNewComponent } from './pages/albums/new/albums-new.component';
 import { AlbumsDetailsComponent } from './pages/albums/details/albums-details.component';
-
-const routes: Routes = [
-  {
-    path: 'album',
-    component: AlbumsComponent,
-    children: [
-      {
-        path: 'welcome',
-        component: WelcomeComponent
-      },
-      {
-        path: 'list',
-        component: AlbumsListComponent
-      },
-      {
-        path: 'new',
-        component: AlbumsNewComponent
-      },
-      {
-        path: 'edit/:id',
-        component: AlbumsNewComponent
-      },
-      {
-        path: ':id',
-        component: AlbumsDetailsComponent
-      }
-    ]
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'album/welcome'
-  },
-  {
-    path: '404',
-    component: NotFoundComponent
-  },
-  {
-    path: '**',
-    redirectTo: '404'
-  }
-];
 
 @NgModule({
   declarations: [
@@ -92,12 +51,12 @@ const routes: Routes = [
     FileSizePipe
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [
     AlbumService,
