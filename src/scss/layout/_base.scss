@@ -4,13 +4,23 @@ app-root {
   flex-direction: column;
 }
 
+not-found,
 collection-welcome {
+  @include animate-show($delay: 50ms);
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 collection-album {
+  @include animate-show;
+
+  @for $i from 1 to 21 {
+    &:nth-child(#{$i}) {
+      animation-delay: 50ms * $i;
+    }
+  }
+
   display: flex;
   flex-direction: column;
   width: 100%;

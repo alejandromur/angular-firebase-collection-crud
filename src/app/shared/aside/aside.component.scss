@@ -1,5 +1,6 @@
 @import "src/scss/config/mq";
 @import "src/scss/config/variables";
+@import "src/scss/config/mixins";
 @import "src/scss/config/colors";
 @import "src/scss/config/animations";
 
@@ -25,6 +26,16 @@ collection-aside {
       display: block;
       position: fixed;
       width: 15.25rem;
+    }
+
+    li {
+      @include animate-show($duration: 500ms, $delay: 150ms);
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          animation-delay: 150ms * $i;
+        }
+      }
     }
 
     li:not(.logo) + li {
@@ -70,10 +81,8 @@ collection-aside {
 }
 
 .logo {
+  @include animate-show($duration: 500ms, $delay: 50ms);
   margin-right: auto;
-  opacity: 0;
-  transform: translate(0, 2rem);
-  animation: show 1200ms $ease-out 100ms forwards;
 
   @include mq($from: tablet) {
     margin-bottom: 3rem;
@@ -103,7 +112,6 @@ collection-aside {
   }
 }
 
-
 .aside__legal {
   display: none;
 
@@ -113,5 +121,4 @@ collection-aside {
     left: 1rem;
     bottom: 1rem;
   }
-
 }

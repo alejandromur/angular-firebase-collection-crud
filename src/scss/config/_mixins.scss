@@ -4,6 +4,23 @@
   border: 2px dashed $color;
 }
 
+@mixin animate-show(
+  $offsetY: 1rem,
+  $duration: 750ms,
+  $function: $ease-out,
+  $delay: 100ms
+  ) {
+  opacity: 0;
+  transform: translate(0, $offsetY);
+  animation: {
+    name: show;
+    duration: $duration;
+    timing-function: $function;
+    delay: $delay;
+    fill-mode: forwards
+  }
+}
+
 //  Aspect Ratio for VIDEOS
 //
 //  --- USAGE:
