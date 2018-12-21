@@ -9,6 +9,8 @@ import { AlbumService } from '../../../services/album.service';
 })
 export class AlbumsListComponent implements OnInit {
 
+  emptyList = true;
+
   albumsList: AlbumModel[];
 
   constructor(private albumService: AlbumService) { }
@@ -16,6 +18,11 @@ export class AlbumsListComponent implements OnInit {
   ngOnInit() {
     // console.log('pido discos');
     this.albumService.getAlbums().snapshotChanges().subscribe(item => {
+
+      if (item.length > 0) {
+        this.emptyList = false;
+      }
+
       this.albumsList = [];
       item.forEach(element => {
         const x = element.payload.toJSON();

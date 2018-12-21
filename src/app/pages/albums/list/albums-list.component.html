@@ -1,7 +1,9 @@
-<ng-container *ngIf="albumsList; else noAlbums">
-  <div class="wrapper">
-    <collection-album *ngFor="let album of albumsList | sort : 'id'" [album]="album"></collection-album>
-  </div>
+<ng-container *ngIf="albumsList; else loading">
+  <ng-container *ngIf="!emptyList; else noAlbums">
+    <div class="wrapper">
+      <collection-album *ngFor="let album of albumsList | sort : 'id'" [album]="album"></collection-album>
+    </div>
+  </ng-container>
 </ng-container>
 
 <ng-template #noAlbums>
@@ -96,5 +98,14 @@
     <ul>
       <li><a [routerLink]="['../album/new']">Guardar un nuevo disco</a></li>
     </ul>
+  </article>
+</ng-template>
+
+<ng-template #loading>
+  <article class="default-page">
+    <div class="spinner">
+      <div class="spinner__circle"></div>
+      <div class="spinner__circle"></div>
+    </div>
   </article>
 </ng-template>
