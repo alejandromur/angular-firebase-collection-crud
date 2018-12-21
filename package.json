@@ -1,12 +1,14 @@
 {
   "name": "my-collection",
   "version": "0.0.0",
+  "sasslintConfig": "src/sass-lint.yml",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
+    "sass-lint": "./node_modules/sass-lint/bin/sass-lint.js -c src/sass-lint.yml -v -q",
+    "lint": "npm run saas-lint && ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -47,6 +49,7 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "postcss-media-variables": "^2.0.1",
     "protractor": "~5.4.1",
+    "sass-lint": "^1.12.1",
     "ts-node": "~7.0.1",
     "tslint": "~5.11.0",
     "typescript": "~3.1.6"

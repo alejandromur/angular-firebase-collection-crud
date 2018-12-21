@@ -17,7 +17,7 @@
     duration: $duration;
     timing-function: $function;
     delay: $delay;
-    fill-mode: forwards
+    fill-mode: forwards;
   }
 }
 
@@ -28,12 +28,13 @@
 //  .video {
 //    @include aspect-ratio( 16, 9 );
 //  }
+
 @mixin aspect-ratio($width, $height) {
   position: relative;
   overflow: hidden;
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     width: 100%;
     padding-top: calc(1 / (#{$height} / #{$width}) * 100%);
