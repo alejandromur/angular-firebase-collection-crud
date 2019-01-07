@@ -17,9 +17,9 @@ export class SortPipe implements PipeTransform {
     const dir = 1;
 
     return [].concat(value).sort((a, b) => {
-      if (a[field] > b[field]) {
+      if (a[field] < b[field]) {
         return 1 * dir;
-      } else if (a[field] < b[field]) {
+      } else if (a[field] > b[field]) {
         return -1 * dir;
       }
       return 0;
