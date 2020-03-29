@@ -1,36 +1,38 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
 // Firebase
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import { AngularFirestore } from "angularfire2/firestore";
+import { AngularFireStorageModule } from "angularfire2/storage";
 
-import { environment } from '../environments/environment';
+import { environment } from "../environments/environment";
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from "@angular/forms";
 
-import { SortPipe } from './shared/sort.pipe';
-import { ValuesPipe } from './shared/values.pipe';
-import { FileSizePipe } from './shared/file-size.pipe';
+import { SortPipe } from "./shared/sort.pipe";
+import { ValuesPipe } from "./shared/values.pipe";
+import { FileSizePipe } from "./shared/file-size.pipe";
 
-import { AlbumService } from './services/album.service';
-import { DropZoneDirective } from './directives/drop-zone.directive';
+import { AlbumService } from "./services/album.service";
+import { DropZoneDirective } from "./directives/drop-zone.directive";
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from "./app-routing.module";
 
-import { AppComponent } from './app.component';
-import { MainComponent } from './shared/main/main.component';
-import { AsideComponent } from './shared/aside/aside.component';
-import { FileUploadComponent } from './shared/file-upload/file-upload.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { AlbumsComponent } from './pages/albums/albums.component';
-import { AlbumComponent } from './shared/album/album.component';
-import { AlbumsListComponent } from './pages/albums/list/albums-list.component';
-import { WelcomeComponent } from './pages/welcome/welcome.component';
-import { AlbumsNewComponent } from './pages/albums/new/albums-new.component';
-import { AlbumsDetailsComponent } from './pages/albums/details/albums-details.component';
+import { AppComponent } from "./app.component";
+import { MainComponent } from "./shared/main/main.component";
+import { AsideComponent } from "./shared/aside/aside.component";
+import { FileUploadComponent } from "./shared/file-upload/file-upload.component";
+import { NotFoundComponent } from "./pages/not-found/not-found.component";
+import { AlbumsComponent } from "./pages/albums/albums.component";
+import { AlbumComponent } from "./shared/album/album.component";
+import { AlbumsListComponent } from "./pages/albums/list/albums-list.component";
+import { WelcomeComponent } from "./pages/welcome/welcome.component";
+import { AlbumsNewComponent } from "./pages/albums/new/albums-new.component";
+import { AlbumsDetailsComponent } from "./pages/albums/details/albums-details.component";
+import { AlbumSearchComponent } from "./shared/album-search/album-search.component";
+import { NavigateBackComponent } from "./shared/navigate-back/navigate-back.component";
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { AlbumsDetailsComponent } from './pages/albums/details/albums-details.co
     SortPipe,
     ValuesPipe,
     DropZoneDirective,
-    FileSizePipe
+    FileSizePipe,
+    AlbumSearchComponent,
+    NavigateBackComponent
   ],
   imports: [
     AppRoutingModule,
@@ -58,10 +62,7 @@ import { AlbumsDetailsComponent } from './pages/albums/details/albums-details.co
     AngularFireStorageModule,
     ReactiveFormsModule
   ],
-  providers: [
-    AlbumService,
-    AngularFirestore
-  ],
+  providers: [AlbumService, AngularFirestore],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
