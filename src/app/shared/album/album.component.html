@@ -6,12 +6,14 @@
     </svg>
   </a>
   <div class="card__info">
-    <h1 class="card__info__heading">
-      <strong>#{{ album.id }}</strong>
-      <br>
-      <span>{{ album.title }}</span>
-    </h1>
-    <h2 class="card__info__subheading">{{ album.artist }}</h2>
+    <div class="card__info__wrapper" [routerLink]="['../', album.id]" (click)="onViewDetails(album)">
+      <h1 class="card__info__heading">
+        <strong>#{{ album.id }}</strong>
+        <br>
+        <span>{{ album.title }}</span>
+      </h1>
+      <h2 class="card__info__subheading">{{ album.artist }}</h2>
+    </div>
     <aside class="card__info__actions">
       <button [routerLink]="['../', album.id]" class="button-primary" (click)="onViewDetails(album)">
         <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 64 64">
